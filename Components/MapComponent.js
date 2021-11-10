@@ -7,12 +7,12 @@ import getCurrentLocation from '../API/LocationAPI';
 
 const TopicMap = () => {
   const {
-    location,
     username,
     isAuthenticated,
     focusTopic,
     hasLocationAuthorization,
     setLocationAuthorization,
+    location,
     setLocation,
   } = react.useContext(AppContext);
 
@@ -22,9 +22,6 @@ const TopicMap = () => {
   if (!location.timestamp) {
     getLocation();
   }
-  react.useEffect(() => {
-    console.log('GEOLOCATION --- location has changed ', location);
-  }, [location]);
 
   return <MapView region={location} style={styles.map} />;
 };

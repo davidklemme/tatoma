@@ -9,16 +9,22 @@ import {
 } from 'react-native';
 import styles from '../assets/styles/globalStyles';
 import AppContext from './AppContext';
-import pnPublish from '../API/PubNubHelper';
+import {pnPublish} from '../API/PubNubHelper';
 
 const ReachOut = () => {
-  const {focusTopic, isAuthenticated, pn, uuid} = react.useContext(AppContext);
-  const pingOrShout = message => {
-    if (!focusTopic || isAuthenticated) {
-      //Alert.alert('Dude - pick a topic first!');
+  const {focusTopic, isAuthenticated, pubnub, uuid, location} =
+    react.useContext(AppContext);
+  const pingOrShout = async message => {
+    if (!focusTopic || !isAuthenticated) {
+      console.warn('Dude - pick a topic first!', focusTopic);
+      return;
     }
-    const publish = async message => {
-      await pnPublish(pn, focusTopic, message, uuid);
+    const publish = async () => {
+      try {
+        await pnPublish(pubnub, focusTopic, message ? message : location, uuid);
+      } catch (e) {
+        console.error(e);
+      }
     };
     publish();
   };
@@ -27,12 +33,16 @@ const ReachOut = () => {
     <View style={styles.reachOut}>
       <TouchableOpacity
         style={styles.reachOutButton}
-        onPress={pingOrShout('ping')}>
+        onPress={() => {
+          pingOrShout();
+        }}>
         <Text style={styles.reachOutButtonText}>Send a Ping</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.reachOutButton}
-        onPress={pingOrShout('shout')}>
+        onPress={() => {
+          pingOrShout('shout');
+        }}>
         <Text style={styles.reachOutButtonText}>Send a Shout</Text>
       </TouchableOpacity>
     </View>

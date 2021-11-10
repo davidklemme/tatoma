@@ -105,6 +105,7 @@ const App = () => {
         uuid: uuid,
       });
       setPubNub(pn);
+      console.info('PUBNUB -- set pn object');
     }
   }, [isAuthenticated, uuid]);
 
@@ -115,18 +116,14 @@ const App = () => {
     console.debug('topicList to subscribe to: \n', topicList);
 
     const subscribeToTopics = async () => {
-      const foo = await pnSubscribe(
-        pubnub,
-        topicList.map(item => {
-          item.key;
-        }),
-        '',
-        uuid,
-      );
+      const subscriptionList = topicList.map(item => {
+        return item.key;
+      });
+      const foo = await pnSubscribe(pubnub, subscriptionList, '', uuid);
       return foo;
     };
     subscribeToTopics();
-  }, [topicList]);
+  }, [topicList, pubnub]);
 
   return (
     <AppContext.Provider

@@ -11,7 +11,7 @@ import {
 } from '@env';
 
 export const pnSubscribe = async (pn, channels, message, uuid) => {
-  console.log('PUBNUB --- subscription request');
+  console.log('PUBNUB --- subscription request', channels);
   pn.subscribe(
     {
       channels: [channels],
@@ -32,12 +32,17 @@ export const pnSubscribe = async (pn, channels, message, uuid) => {
 };
 
 export const pnPublish = async (pn, channels, message, uuid) => {
-  console.log('--- PUBNUB --- Publish request \n to channel :', channels[0]);
+  console.log(
+    '--- PUBNUB --- Publish request \n to channel :',
+    channels,
+    pn,
+    uuid,
+  );
   //TODO handle multi channel messages
   pn.publish(
     {
       channel: channels,
-      message: {lat: `${52}`, long: `${13}`, entry: 'anEntry'},
+      message: message,
     },
     function (status, response) {
       if (status.error) {
