@@ -73,6 +73,7 @@ const App = () => {
     //build cypher
     //get cyhper results from neo4j Aura - CREATE USER IF NOT EXISTS
     const getNeoUser = async () => {
+      //TODO make sure that Jane Doe is not mixed in - so that 2 users end up with the same uuid
       await ReadNeo4J(
         `MERGE (user:User {name: '${username}',uuid: '${uuid}'}) RETURN user.name,user.uuid`,
         uuid,
@@ -119,7 +120,14 @@ const App = () => {
       const subscriptionList = topicList.map(item => {
         return item.key;
       });
-      const foo = await pnSubscribe(pubnub, subscriptionList, '', uuid);
+      const foo = await pnSubscribe(
+        pubnub,
+        subscriptionList,
+        '',
+        uuid,
+        markers,
+        setMarkers,
+      );
       return foo;
     };
     subscribeToTopics();
@@ -139,6 +147,7 @@ const App = () => {
         allTopics,
         setAllTopics,
         markers,
+        setMarkers,
         pubnub,
         hasLocationAuthorization,
         setLocationAuthorization,

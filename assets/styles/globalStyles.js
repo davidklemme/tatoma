@@ -106,6 +106,16 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 10,
+    pinColor: 'darkorange',
+  },
+  markerHalo: {
+    position: 'absolute',
+    backgroundColor: '#ff7b9cff',
+    top: 0,
+    left: 0,
+    width: 15,
+    height: 15,
+    borderRadius: Math.ceil(15 / 2),
   },
 });
 

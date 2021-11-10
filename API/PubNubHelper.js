@@ -10,7 +10,14 @@ import {
   REACT_APP_PUBNUB_SUBSCRIBE_KEY,
 } from '@env';
 
-export const pnSubscribe = async (pn, channels, message, uuid) => {
+export const pnSubscribe = async (
+  pn,
+  channels,
+  message,
+  uuid,
+  markers,
+  setMarkers,
+) => {
   console.log('PUBNUB --- subscription request', channels);
   pn.subscribe(
     {
@@ -29,15 +36,34 @@ export const pnSubscribe = async (pn, channels, message, uuid) => {
       }
     },
   );
+  console.log(
+    '===> subscribed channels: ',
+    pn.getSubscribedChannels(),
+    '\n===> with topics: ',
+    channels,
+  );
+  pn.addListener({
+    message: function (event) {
+      console.log(
+        'PUBNUB --- [MESSAGE: received]',
+        '  | ',
+        event.channel,
+        '| ',
+        event.message.latitude + ' : ' + event.message.longitude,
+      );
+      const newMarker = {
+        latitude: parseFloat(event.message.latitude),
+        longitude: parseFloat(event.message.longitude),
+        channel: event.channel,
+        timestamp: event.message.timestamp,
+      };
+      setMarkers(markers => [...markers, newMarker]);
+    },
+  });
 };
 
 export const pnPublish = async (pn, channels, message, uuid) => {
-  console.log(
-    '--- PUBNUB --- Publish request \n to channel :',
-    channels,
-    pn,
-    uuid,
-  );
+  console.log('--- PUBNUB --- Publish request \n to channel :', channels);
   //TODO handle multi channel messages
   pn.publish(
     {
