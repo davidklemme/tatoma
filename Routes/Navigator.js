@@ -5,6 +5,7 @@ import Profile from '../Screens/Profile';
 import React from 'react';
 import LogoIcon from '../Components/Icons/LogoIcon';
 import UserIcon from '../Components/Icons/UserIcon';
+import Shouts from '../Screens/Shouts';
 
 const headerConfig = {
   defaultNavigationOptions: {
@@ -34,6 +35,9 @@ const screens = {
   Profile: {
     screen: Profile,
   },
+  Shouts: {
+    screen: Shouts,
+  },
 };
 
 const Stack = createNativeStackNavigator();
@@ -55,6 +59,11 @@ const Navigator = ({initialState}) => {
       <Stack.Screen
         name="Profile"
         component={Profile}
+        initialParams={initialState}
+      />
+      <Stack.Screen
+        name="Shouts"
+        component={Shouts}
         initialParams={initialState}
       />
     </Stack.Navigator>

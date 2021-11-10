@@ -29,7 +29,7 @@ const Home = ({route, navigation, screenProps}) => {
         username={username ? username : 'there'}
         authentication={isAuthenticated}
       />
-      {showButtons && <ReachOut />}
+      {showButtons && <ReachOut navigation={navigation} />}
       <TopicMap />
     </View>
   );

@@ -40,6 +40,10 @@ const App = () => {
   const [pubnub, setPubNub] = react.useState(null);
   const [focusTopic, setFocusTopic] = react.useState(null);
   const [topicList, setTopicList] = react.useState(null);
+  const [shoutList, setShoutList] = react.useState([
+    {uuid: '123', message: 'hello', type: 'message'},
+    {uuid: '124', message: 'world', type: 'message'},
+  ]);
   const [allTopics, setAllTopics] = react.useState([
     {key: 'Foo', count: 47},
     {key: 'bar', count: 10},
@@ -127,6 +131,8 @@ const App = () => {
         uuid,
         markers,
         setMarkers,
+        shoutList,
+        setShoutList,
       );
       return foo;
     };
@@ -153,6 +159,8 @@ const App = () => {
         setLocationAuthorization,
         location,
         setLocation,
+        shoutList,
+        setShoutList,
       }}>
       <SafeAreaProvider>
         <NavigationContainer>

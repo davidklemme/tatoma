@@ -34,7 +34,6 @@ const TopicMap = () => {
   return (
     <MapView region={location} style={styles.map}>
       {focusMarkers.map((val, index) => {
-        console.log(val, index);
         return (
           <Marker
             coordinate={{
