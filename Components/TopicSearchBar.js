@@ -21,7 +21,8 @@ import ReadNeo4J from '../API/Neo4J';
 import {sortedList} from '../assets/helper';
 
 const TypeAheadTopics = () => {
-  const {allTopics, setAllTopics, uuid} = react.useContext(AppContext);
+  const {allTopics, setAllTopics, topicList, setTopicList, uuid} =
+    react.useContext(AppContext);
   const [newProp, onChangeText] = react.useState('Type to add new interest');
   const [showSuggestions, setshowSuggestions] = react.useState(false);
   const [filteredTopics, setFilteredTopics] = react.useState([]);
@@ -36,22 +37,47 @@ const TypeAheadTopics = () => {
         return item.key;
       }),
     );
-    console.info(
-      'TYPEAHEAD -',
-      'showing suggestions? ',
-      showSuggestions,
-      '\n Keyword: ',
-      newProp,
-      '\n topic list \n ',
-      allTopics,
-      '\n filtered list: \n',
-      filteredTopics,
-    );
+    // console.info(
+    //   'TYPEAHEAD -',
+    //   'showing suggestions? ',
+    //   showSuggestions,
+    //   '\n Keyword: ',
+    //   newProp,
+    //   '\n topic list \n ',
+    //   allTopics,
+    //   '\n filtered list: \n',
+    //   filteredTopics,
+    // );
   }, [newProp]);
+
+  const addTopic = async () => {
+    //TODO combine in one query
+    //add Topic if not exists
+    await ReadNeo4J(`MERGE (h:Hobby {name: '${newProp}'}) RETURN h.name`, uuid);
+    //add relationship
+    await ReadNeo4J(
+      `MATCH (user {uuid: "${uuid}"}),(h:Hobby {name:"${newProp}"})
+      MERGE(user)-[r:FOLLOWS]->(h)
+      RETURN h.name, SIZE(()-[:FOLLOWS]->(h)) as count`,
+      uuid,
+    );
+    setTopicList(topicList => [...topicList, newProp]);
+    const getNeoTopics = async () => {
+      const neoTopics = await ReadNeo4J(
+        `MATCH (user {uuid: '${uuid}'})--> (Hobby) RETURN Hobby.name, SIZE(()-[:FOLLOWS]->(Hobby)) as count`,
+        uuid,
+      );
+      setTopicList(neoTopics);
+      console.log(topicList);
+    };
+    //TODO Put this in useEffect (App.js)? The same function is defined and executed in 3 (!!) different classes/functions. Not ideal...
+    getNeoTopics();
+  };
 
   const endEdit = () => {
     setshowSuggestions(!showSuggestions);
     lastNameRef.current.blur();
+    addTopic();
   };
   const lastNameRef = react.useRef();
 

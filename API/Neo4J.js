@@ -26,7 +26,7 @@ const ReadNeo4J = async (query, uuid) => {
       topics = result.records.map(item => {
         return {
           key: item._fields[0],
-          count: item._fields[1].low,
+          count: item._fields[1]?.low,
         };
       });
     })

@@ -56,6 +56,7 @@ const App = () => {
       timestamp: '1636556192',
     },
   ]);
+  //TODO rename allTopics & topicList to be less ambiguous.
   const [allTopics, setAllTopics] = react.useState([
     {key: 'Foo', count: 47},
     {key: 'bar', count: 10},
