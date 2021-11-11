@@ -19,6 +19,7 @@ export default async function getCurrentLocation() {
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
       timestamp: timestamp,
+      type: 'ping',
     });
   };
 

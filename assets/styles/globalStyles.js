@@ -1,11 +1,64 @@
 import {StyleSheet, Dimensions, Platform} from 'react-native';
+/*
+standard colour palette:
 
+ CSS HEX 
+--maximum-yellow-red: #ffc759ff;
+--tickle-me-pink: #ff7b9cff;
+--blue-yonder: #607196ff;
+--light-periwinkle: #babfd1ff;
+
+ CSS HSL 
+--maximum-yellow-red: hsla(40, 100%, 67%, 1);
+--tickle-me-pink: hsla(345, 100%, 74%, 1);
+--blue-yonder: hsla(221, 22%, 48%, 1);
+--light-periwinkle: hsla(227, 20%, 77%, 1);
+
+ SCSS HEX 
+$maximum-yellow-red: #ffc759ff;
+$tickle-me-pink: #ff7b9cff;
+$blue-yonder: #607196ff;
+$light-periwinkle: #babfd1ff;
+
+ SCSS HSL 
+$maximum-yellow-red: hsla(40, 100%, 67%, 1);
+$tickle-me-pink: hsla(345, 100%, 74%, 1);
+$blue-yonder: hsla(221, 22%, 48%, 1);
+$light-periwinkle: hsla(227, 20%, 77%, 1);
+
+ SCSS RGB 
+$maximum-yellow-red: rgba(255, 199, 89, 1);
+$tickle-me-pink: rgba(255, 123, 156, 1);
+$blue-yonder: rgba(96, 113, 150, 1);
+$light-periwinkle: rgba(186, 191, 209, 1);
+
+ SCSS Gradient 
+$gradient-top: linear-gradient(0deg, #ffc759ff, #ff7b9cff, #607196ff, #babfd1ff);
+$gradient-right: linear-gradient(90deg, #ffc759ff, #ff7b9cff, #607196ff, #babfd1ff);
+$gradient-bottom: linear-gradient(180deg, #ffc759ff, #ff7b9cff, #607196ff, #babfd1ff);
+$gradient-left: linear-gradient(270deg, #ffc759ff, #ff7b9cff, #607196ff, #babfd1ff);
+$gradient-top-right: linear-gradient(45deg, #ffc759ff, #ff7b9cff, #607196ff, #babfd1ff);
+$gradient-bottom-right: linear-gradient(135deg, #ffc759ff, #ff7b9cff, #607196ff, #babfd1ff);
+$gradient-top-left: linear-gradient(225deg, #ffc759ff, #ff7b9cff, #607196ff, #babfd1ff);
+$gradient-bottom-left: linear-gradient(315deg, #ffc759ff, #ff7b9cff, #607196ff, #babfd1ff);
+$gradient-radial: radial-gradient(#ffc759ff, #ff7b9cff, #607196ff, #babfd1ff);
+
+
+*/
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  chatContainer: {
+    width: Dimensions.get('window').width * 0.9 - 20,
+    backgroundColor: '#babfd1ff',
+    flexDirection: 'column',
+    margin: 10,
+    borderColor: 'red',
+    alignSelf: 'center',
   },
   paragraph: {
     fontSize: 14,

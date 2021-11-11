@@ -11,17 +11,17 @@ import styles from '../assets/styles/globalStyles';
 import AppContext from './AppContext';
 import {pnPublish} from '../API/PubNubHelper';
 
-const ReachOut = () => {
+const ReachOut = ({navigation}) => {
   const {focusTopic, isAuthenticated, pubnub, uuid, location} =
     react.useContext(AppContext);
-  const pingOrShout = async message => {
+  const ping = async message => {
     if (!focusTopic || !isAuthenticated) {
       console.warn('Dude - pick a topic first!', focusTopic);
       return;
     }
     const publish = async () => {
       try {
-        await pnPublish(pubnub, focusTopic, message ? message : location, uuid);
+        await pnPublish(pubnub, focusTopic, location, uuid);
       } catch (e) {
         console.error(e);
       }
@@ -34,14 +34,14 @@ const ReachOut = () => {
       <TouchableOpacity
         style={styles.reachOutButton}
         onPress={() => {
-          pingOrShout();
+          ping();
         }}>
         <Text style={styles.reachOutButtonText}>Send a Ping</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.reachOutButton}
         onPress={() => {
-          pingOrShout('shout');
+          navigation.navigate('Shouts', {screen: 'Shouts'});
         }}>
         <Text style={styles.reachOutButtonText}>Send a Shout</Text>
       </TouchableOpacity>
