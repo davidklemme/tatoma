@@ -44,6 +44,7 @@ export const pnSubscribe = async (
     '\n===> with topics: ',
     channels,
   );
+  //TODO ensure messages are unique
   pn.addListener({
     message: function (event) {
       console.log(
@@ -68,6 +69,7 @@ export const pnSubscribe = async (
           message: event.message.message,
           channel: event.channel,
           timestamp: event.message.timestamp,
+          uuid: event.message.uuid,
         };
         setShoutList(shoutList => [...shoutList, newMessage]);
       }
@@ -87,6 +89,7 @@ export const pnPublish = async (pn, channels, message, uuid, type) => {
     {
       channel: channels,
       message: message,
+      uuid: uuid,
     },
     function (status, response) {
       if (status.error) {

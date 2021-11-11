@@ -24,7 +24,7 @@ const TopicMap = () => {
   if (!location.timestamp) {
     getLocation();
   }
-
+  //TODO - how to bundle - e.g. whats to cutoff point for the number of markers AND the age of the marker
   const focusMarkers = markers.filter(marker => {
     if (marker.channel === focusTopic) {
       return marker;

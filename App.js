@@ -41,8 +41,20 @@ const App = () => {
   const [focusTopic, setFocusTopic] = react.useState(null);
   const [topicList, setTopicList] = react.useState(null);
   const [shoutList, setShoutList] = react.useState([
-    {uuid: '123', message: 'hello', type: 'message'},
-    {uuid: '124', message: 'world', type: 'message'},
+    {
+      uuid: '123',
+      message: 'hello',
+      type: 'message',
+      channel: 'Baseball',
+      timestamp: '1636556191',
+    },
+    {
+      uuid: '124',
+      message: 'world',
+      type: 'message',
+      channel: 'Baseball',
+      timestamp: '1636556192',
+    },
   ]);
   const [allTopics, setAllTopics] = react.useState([
     {key: 'Foo', count: 47},

@@ -19,6 +19,10 @@ export const sortedList = list => {
   return sortedList;
 };
 
+export const formatTimestamp = timestamp => {
+  const date = new Date(timestamp * 1000);
+  return `${date.getMonth()}/${date.getDay()} - ${date.getHours()}:${date.getMinutes()}`;
+};
 /*
 face value from
 //:::  Official Web site: https://www.geodatasource.com                       :::
@@ -30,7 +34,7 @@ to calculate the distance between two geolocations, adressing curvature and so f
 */
 
 export function distance(lat1, lon1, lat2, lon2, unit) {
-  if (lat1 == lat2 && lon1 == lon2) {
+  if (lat1 === lat2 && lon1 === lon2) {
     return 0;
   } else {
     var radlat1 = (Math.PI * lat1) / 180;
