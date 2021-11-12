@@ -15,9 +15,37 @@ no user -tbd
 
 const ChatItem = ({message, time, chatUuid, userUuid}) => {
   return (
-    <Text style={{textAlign: chatUuid === userUuid ? 'right' : 'left'}}>
-      {message} {formatTimestamp(time)}
-    </Text>
+    <View style={styles.chatItemContainer}>
+      <Text
+        style={{
+          textAlign: chatUuid === userUuid ? 'right' : 'left',
+          margin: 5,
+          borderRadius: 10,
+          marginRight: chatUuid === userUuid ? 0 : 120,
+          marginLeft: chatUuid === userUuid ? 120 : 0,
+          paddingBottom: 0,
+          paddingTop: 0,
+          paddingLeft:10,
+          fontWeight: '300',
+          maxWidth: 200,
+        }}>
+        {message}
+      </Text>
+      <Text
+        style={{
+          textAlign: chatUuid === userUuid ? 'right' : 'left',
+          margin: 5,
+          borderRadius: 10,
+          marginRight: chatUuid === userUuid ? 0 : 120,
+          marginLeft: chatUuid === userUuid ? 120 : 0,
+          paddingLeft: 10,
+          paddingBottom: 0,
+          paddingTop: 0,
+          fontWeight: '100',
+        }}>
+        {formatTimestamp(time)}
+      </Text>
+    </View>
   );
 };
 export default ChatItem;

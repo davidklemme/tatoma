@@ -20,12 +20,15 @@ const ChatList = ({route, navigation, screenProps}) => {
         data={focusShoutList.sort((a, b) => (a > b ? 1 : -1))}
         renderItem={({item, index}) => {
           return (
-            <ChatItem
-              message={item.message}
-              time={item.timestamp}
-              chatUuid={item.uuid}
-              userUuid={uuid}
-            />
+            <View>
+              <ChatItem
+                message={item.message}
+                time={item.timestamp}
+                chatUuid={item.uuid}
+                userUuid={uuid}
+              />
+              <Text>----------</Text>
+            </View>
           );
         }}
         keyExtractor={(item, index) => index.toString()}

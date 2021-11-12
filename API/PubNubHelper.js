@@ -21,6 +21,7 @@ export const pnSubscribe = async (
   setShoutList,
 ) => {
   console.log('PUBNUB --- subscription request', channels);
+  pn.unsubscribeAll();
   pn.subscribe(
     {
       channels: [channels],

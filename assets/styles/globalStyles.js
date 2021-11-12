@@ -52,8 +52,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  chatItemContainer: {
+    backgroundColor: '#ffc759ff',
+    borderColor: '#ffc759ff',
+    paddingBottom: 20,
+    borderWidth: 1,
+    borderRadius: 12,
+    width: '80%',
+  },
   chatContainer: {
-    width: Dimensions.get('window').width * 0.9 - 20,
+    width: Dimensions.get('window').width * 0.95 - 10,
     backgroundColor: '#babfd1ff',
     flexDirection: 'column',
     margin: 10,
@@ -65,6 +73,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   h2: {
+    paddingTop: 10,
     fontSize: 20,
     textAlign: 'center',
   },
