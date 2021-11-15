@@ -20,7 +20,10 @@ const ChatList = ({route, navigation, screenProps}) => {
         data={focusShoutList.sort((a, b) => (a > b ? 1 : -1))}
         renderItem={({item, index}) => {
           return (
-            <View>
+            <View
+              style={{
+                alignSelf: item.uuid === uuid ? 'flex-end' : 'flex-start',
+              }}>
               <ChatItem
                 message={item.message}
                 time={item.timestamp}

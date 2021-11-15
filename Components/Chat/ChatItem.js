@@ -14,18 +14,16 @@ no user -tbd
 */
 
 const ChatItem = ({message, time, chatUuid, userUuid}) => {
+  const myShout = chatUuid === userUuid ? true : false;
   return (
     <View style={styles.chatItemContainer}>
       <Text
         style={{
-          textAlign: chatUuid === userUuid ? 'right' : 'left',
           margin: 5,
           borderRadius: 10,
-          marginRight: chatUuid === userUuid ? 0 : 120,
-          marginLeft: chatUuid === userUuid ? 120 : 0,
           paddingBottom: 0,
           paddingTop: 0,
-          paddingLeft:10,
+          paddingLeft: 10,
           fontWeight: '300',
           maxWidth: 200,
         }}>
@@ -33,11 +31,8 @@ const ChatItem = ({message, time, chatUuid, userUuid}) => {
       </Text>
       <Text
         style={{
-          textAlign: chatUuid === userUuid ? 'right' : 'left',
           margin: 5,
           borderRadius: 10,
-          marginRight: chatUuid === userUuid ? 0 : 120,
-          marginLeft: chatUuid === userUuid ? 120 : 0,
           paddingLeft: 10,
           paddingBottom: 0,
           paddingTop: 0,

@@ -10,21 +10,24 @@ import {pnPublish} from '../../API/PubNubHelper';
 const ChatContainer = ({route, navigation, screenProps}) => {
   const {username, isAuthenticated, focusTopic, uuid, shoutList, pubnub} =
     react.useContext(AppContext);
-  const [shoutContent, setShoutContent] = react.useState(null);
-  const shout = async message => {
+  const [shoutContent, setShoutContent] = react.useState('');
+
+  const shout = async => {
     if (!focusTopic || !isAuthenticated) {
       console.warn('Dude - pick a topic first!', focusTopic);
       return;
     }
+
     const publish = async () => {
-      const message = {
+      const shoutMessage = {
         message: shoutContent,
         type: 'shout',
-        timestamp: Date.now(),
+        timestamp: Date.now() / 1000,
+        uuid,
       };
-      console.log(message);
+      console.log(shoutMessage);
       try {
-        await pnPublish(pubnub, focusTopic, message, uuid, 'shout');
+        await pnPublish(pubnub, focusTopic, shoutMessage, uuid, 'shout');
       } catch (e) {
         console.error(e);
       }
