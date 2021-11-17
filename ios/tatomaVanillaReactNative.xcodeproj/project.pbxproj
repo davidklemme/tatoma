@@ -11,6 +11,7 @@
 		07524DDF3E09BF3D20EAD603 /* libPods-tatomaVanillaReactNative-tatomaVanillaReactNativeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6ED7DEDC744618C5899ED0 /* libPods-tatomaVanillaReactNative-tatomaVanillaReactNativeTests.a */; };
 		0856CAD327397C650016D02D /* bridgeWorkaround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0856CAD227397C650016D02D /* bridgeWorkaround.swift */; };
 		0856CAD527397DFF0016D02D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0856CAD427397DFF0016D02D /* MapKit.framework */; };
+		086B17A02745129800F18091 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 086B179F2745129800F18091 /* AppCenter-Config.plist */; };
 		08B53215272AEEDB00910F31 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08B53212272AEEDB00910F31 /* fa-regular-400.ttf */; };
 		08B53216272AEEDB00910F31 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08B53213272AEEDB00910F31 /* fa-brands-400.ttf */; };
 		08B53217272AEEDB00910F31 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08B53214272AEEDB00910F31 /* fa-solid-900.ttf */; };
@@ -41,6 +42,7 @@
 		0856CAD127397C640016D02D /* tatomaVanillaReactNative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tatomaVanillaReactNative-Bridging-Header.h"; sourceTree = "<group>"; };
 		0856CAD227397C650016D02D /* bridgeWorkaround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bridgeWorkaround.swift; sourceTree = "<group>"; };
 		0856CAD427397DFF0016D02D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		086B179F2745129800F18091 /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "tatomaVanillaReactNative/AppCenter-Config.plist"; sourceTree = "<group>"; };
 		08B53212272AEEDB00910F31 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fa-regular-400.ttf"; path = "../../../../Downloads/fa-regular-400.ttf"; sourceTree = "<group>"; };
 		08B53213272AEEDB00910F31 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fa-brands-400.ttf"; path = "../../../../Downloads/fa-brands-400.ttf"; sourceTree = "<group>"; };
 		08B53214272AEEDB00910F31 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fa-solid-900.ttf"; path = "../../../../Downloads/fa-solid-900.ttf"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		13B07FAE1A68108700A75B9A /* tatomaVanillaReactNative */ = {
 			isa = PBXGroup;
 			children = (
+				086B179F2745129800F18091 /* AppCenter-Config.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -311,6 +314,7 @@
 				08B53215272AEEDB00910F31 /* fa-regular-400.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				086B17A02745129800F18091 /* AppCenter-Config.plist in Resources */,
 				79E43A802CCC4CB7AE652418 /* antfill.ttf in Resources */,
 				3EB4B3663EF24D47836CE2A2 /* antoutline.ttf in Resources */,
 			);
