@@ -7,7 +7,7 @@ import ChatItem from './ChatItem';
 const ChatList = ({route, navigation, screenProps}) => {
   const {username, isAuthenticated, focusTopic, uuid, shoutList} =
     react.useContext(AppContext);
-
+  //TODO ensure items are unique (to avoid duplication from multiple event listeners)
   const focusShoutList = shoutList.filter(item => {
     if (item.channel === focusTopic) {
       return item;

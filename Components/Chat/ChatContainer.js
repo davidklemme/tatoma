@@ -37,6 +37,7 @@ const ChatContainer = ({route, navigation, screenProps}) => {
 
   const endEdit = () => {
     lastNameRef.current.blur();
+    console.debug('shouting', shoutContent);
     shout();
     setShoutContent('');
   };

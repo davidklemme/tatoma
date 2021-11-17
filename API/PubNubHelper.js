@@ -1,15 +1,3 @@
-import React, * as react from 'react';
-import {Text} from 'react-native';
-import AppContext from '../Components/AppContext';
-import PubNub from 'pubnub';
-import {
-  REACT_APP_AUTH0_ISSUER_BASE_URL,
-  REACT_APP_AUTH0_CLIENT_ID,
-  REACT_APP_AUTH0_BASE_URL,
-  REACT_APP_PUBNUB_PUBLISH_KEY,
-  REACT_APP_PUBNUB_SUBSCRIBE_KEY,
-} from '@env';
-
 export const pnSubscribe = async (
   pn,
   channels,
@@ -21,7 +9,12 @@ export const pnSubscribe = async (
   setShoutList,
 ) => {
   console.log('PUBNUB --- subscription request', channels);
+
   pn.unsubscribeAll();
+  var existingListener = {
+    message: function () {},
+  };
+  pn.removeListener(existingListener);
   pn.subscribe(
     {
       channels: [channels],

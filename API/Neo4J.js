@@ -1,6 +1,8 @@
 import neo4j from 'neo4j-driver/lib/browser/neo4j-web';
 import * as react from 'react';
 import AppContext from '../Components/AppContext';
+import getKey from '../assets/globalVars';
+
 import {
   REACT_APP_NEO4J_USER,
   REACT_APP_NEO4J_PASS,
@@ -9,8 +11,11 @@ import {
 
 const ReadNeo4J = async (query, uuid) => {
   const driver = neo4j.driver(
-    REACT_APP_NEO4J_URI,
-    neo4j.auth.basic(REACT_APP_NEO4J_USER, REACT_APP_NEO4J_PASS),
+    await getKey('NEO4J', 'URI'),
+    neo4j.auth.basic(
+      await getKey('NEO4J', 'USER'),
+      await getKey('NEO4J', 'PASS'),
+    ),
   );
   if (!uuid) {
     console.warn('uuid is empty - cannot grab graph data for unknown user');

@@ -7,21 +7,9 @@ import Auth0 from 'react-native-auth0';
 import jwtDecode from 'jwt-decode';
 import ReadNeo4J from './API/Neo4J';
 import PubNub from 'pubnub';
-import {
-  REACT_APP_AUTH0_ISSUER_BASE_URL,
-  REACT_APP_AUTH0_CLIENT_ID,
-  REACT_APP_AUTH0_BASE_URL,
-  REACT_APP_PUBNUB_PUBLISH_KEY,
-  REACT_APP_PUBNUB_SUBSCRIBE_KEY,
-  REACT_APP_DEFAULT_LOCATION,
-} from '@env';
+import getKey from './assets/globalVars';
 import {pnPublish, pnSubscribe, pnUnsubscribe} from './API/PubNubHelper';
 
-const auth0 = new Auth0({
-  domain: REACT_APP_AUTH0_ISSUER_BASE_URL,
-  clientId: REACT_APP_AUTH0_CLIENT_ID,
-  redirectUri: REACT_APP_AUTH0_BASE_URL,
-});
 import {sortedList} from './assets/helper';
 
 const App = () => {
@@ -66,6 +54,11 @@ const App = () => {
     react.useState(false);
 
   const logInUser = async () => {
+    const auth0 = new Auth0({
+      domain: await getKey('AUTH0', 'ISSUER_BASE_URL'),
+      clientId: await getKey('AUTH0', 'CLIENT_ID'),
+      redirectUri: await getKey('AUTH0', 'BASE_URL'),
+    });
     try {
       let credentials = await auth0.webAuth.authorize({
         scope: 'openid profile email',
@@ -117,15 +110,19 @@ const App = () => {
     getNeoTopics();
     getAllAvailableNeoTopics();
     if (!pubnub) {
-      const pn = new PubNub({
-        publishKey: REACT_APP_PUBNUB_PUBLISH_KEY,
-        subscribeKey: REACT_APP_PUBNUB_SUBSCRIBE_KEY,
-        uuid: uuid,
-      });
-      setPubNub(pn);
-      console.info('PUBNUB -- set pn object');
+      createPubnubObject();
     }
   }, [isAuthenticated, uuid]);
+
+  const createPubnubObject = async () => {
+    const pn = new PubNub({
+      publishKey: await getKey('PUBNUB', 'PUBLISH_KEY'),
+      subscribeKey: await getKey('PUBNUB', 'SUBSCRIBE_KEY'),
+      uuid: uuid,
+    });
+    setPubNub(pn);
+    console.info('PUBNUB -- set pn object');
+  };
 
   react.useEffect(() => {
     if (!topicList || !pubnub) {

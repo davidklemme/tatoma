@@ -21,8 +21,6 @@ export const sortedList = list => {
 
 export const formatTimestamp = timestamp => {
   const date = new Date(timestamp * 1000);
-  console.log('Got timestamp', timestamp, 'converted to', date);
-  console.log(`timestamp equates to Day: ${date.getUTCDay()}`);
   return `${date.getUTCMonth() + 1}/${date.getUTCDate()} - ${
     date.getUTCHours() + 1
   }:${date.getUTCMinutes()}`;
