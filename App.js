@@ -8,7 +8,7 @@ import jwtDecode from 'jwt-decode';
 import ReadNeo4J from './API/Neo4J';
 import PubNub from 'pubnub';
 import getKey from './assets/globalVars';
-import {pnPublish, pnSubscribe, pnUnsubscribe} from './API/PubNubHelper';
+import {pnSubscribe} from './API/PubNubHelper';
 
 import {sortedList} from './assets/helper';
 

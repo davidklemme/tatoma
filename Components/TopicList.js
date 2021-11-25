@@ -6,16 +6,8 @@ import ReadNeo4J from '../API/Neo4J';
 import {sortedList} from '../assets/helper';
 
 const TopicList = () => {
-  const {
-    uuid,
-    username,
-    isAuthenticated,
-    focusTopic,
-    setFocusTopic,
-    topicList,
-    setTopicList,
-    markers,
-  } = react.useContext(AppContext);
+  const {uuid, focusTopic, setFocusTopic, topicList, setTopicList} =
+    react.useContext(AppContext);
 
   const removeNeoTopic = async topic => {
     console.warn(` ===> deleting relationship to ${topic} . <===`);

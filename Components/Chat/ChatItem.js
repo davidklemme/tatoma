@@ -1,5 +1,5 @@
-import React, * as react from 'react';
-import {Text, View, FlatList} from 'react-native';
+import React from 'react';
+import {Text, View} from 'react-native';
 import styles from '../../assets/styles/globalStyles';
 import {formatTimestamp} from '../../assets/helper';
 

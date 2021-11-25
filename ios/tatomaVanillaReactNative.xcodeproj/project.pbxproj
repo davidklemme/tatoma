@@ -18,9 +18,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		3EB4B3663EF24D47836CE2A2 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8B22D531B9A43BF807BE214 /* antoutline.ttf */; };
 		798533FC49FB47530D474456 /* libPods-tatomaVanillaReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2189153EDF9580672DB2E04 /* libPods-tatomaVanillaReactNative.a */; };
-		79E43A802CCC4CB7AE652418 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E2C29312CF34B15A14A9E24 /* antfill.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -315,8 +313,6 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				086B17A02745129800F18091 /* AppCenter-Config.plist in Resources */,
-				79E43A802CCC4CB7AE652418 /* antfill.ttf in Resources */,
-				3EB4B3663EF24D47836CE2A2 /* antoutline.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

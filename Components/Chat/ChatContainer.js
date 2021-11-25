@@ -1,5 +1,5 @@
 import React, * as react from 'react';
-import {DatePickerAndroid, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import styles from '../../assets/styles/globalStyles';
 import AppContext from '../../Components/AppContext';
 import ChatList from './ChatList';
@@ -8,7 +8,7 @@ import {Input} from 'react-native-elements/dist/input/Input';
 import {pnPublish} from '../../API/PubNubHelper';
 
 const ChatContainer = ({route, navigation, screenProps}) => {
-  const {username, isAuthenticated, focusTopic, uuid, shoutList, pubnub} =
+  const {isAuthenticated, focusTopic, uuid, pubnub} =
     react.useContext(AppContext);
   const [shoutContent, setShoutContent] = react.useState('');
 

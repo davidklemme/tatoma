@@ -1,22 +1,12 @@
 import React, * as react from 'react';
-import {Text, ImageBackground, View} from 'react-native';
+import {View} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import AppContext from './AppContext';
 import styles from '../assets/styles/globalStyles';
 import getCurrentLocation from '../API/LocationAPI';
-import tatomaLogo from '../assets/tatoma_logo.png';
 
 const TopicMap = () => {
-  const {
-    username,
-    isAuthenticated,
-    focusTopic,
-    hasLocationAuthorization,
-    setLocationAuthorization,
-    location,
-    setLocation,
-    markers,
-  } = react.useContext(AppContext);
+  const {focusTopic, location, markers} = react.useContext(AppContext);
 
   const getLocation = async () => {
     await getCurrentLocation();

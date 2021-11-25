@@ -1,12 +1,5 @@
 import React, * as react from 'react';
-import {
-  View,
-  Button,
-  Text,
-  TouchableOpacity,
-  SafeAreaView,
-  Alert,
-} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import styles from '../assets/styles/globalStyles';
 import AppContext from './AppContext';
 import {pnPublish} from '../API/PubNubHelper';

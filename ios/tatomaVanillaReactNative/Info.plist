@@ -62,10 +62,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Need to know where you are for this to work</string>
 	<key>UIAppFonts</key>
-	<array>
-		<string>antfill.ttf</string>
-		<string>antoutline.ttf</string>
-	</array>
+	<array/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

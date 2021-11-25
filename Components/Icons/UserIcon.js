@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, * as react from 'react';
-import {Text, View, Image} from 'react-native';
+import {View, Image} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faUserCog} from '@fortawesome/free-solid-svg-icons';
 import AppContext from '../AppContext';

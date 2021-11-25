@@ -1,18 +1,5 @@
 import React, * as react from 'react';
-import {
-  Item,
-  FlatList,
-  TextInput,
-  Pressable,
-  Modal,
-  Button,
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  TouchableOpacity,
-} from 'react-native';
+import {FlatList, TextInput, View} from 'react-native';
 import {Input} from 'react-native-elements/dist/input/Input';
 import AppContext from '../Components/AppContext';
 import styles from '../assets/styles/globalStyles';
@@ -21,7 +8,7 @@ import ReadNeo4J from '../API/Neo4J';
 import {sortedList} from '../assets/helper';
 
 const TypeAheadTopics = () => {
-  const {allTopics, setAllTopics, topicList, setTopicList, uuid} =
+  const {allTopics, topicList, setTopicList, uuid} =
     react.useContext(AppContext);
   const [newProp, onChangeText] = react.useState('Type to add new interest');
   const [showSuggestions, setshowSuggestions] = react.useState(false);

@@ -1,19 +1,6 @@
 import React, * as react from 'react';
 import AppContext from './AppContext';
-import {
-  Item,
-  FlatList,
-  TextInput,
-  Pressable,
-  Modal,
-  Button,
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  TouchableOpacity,
-} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import styles from '../assets/styles/globalStyles';
 import ReadNeo4J from '../API/Neo4J';
 

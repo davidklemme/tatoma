@@ -1,13 +1,5 @@
 import neo4j from 'neo4j-driver/lib/browser/neo4j-web';
-import * as react from 'react';
-import AppContext from '../Components/AppContext';
 import getKey from '../assets/globalVars';
-
-import {
-  REACT_APP_NEO4J_USER,
-  REACT_APP_NEO4J_PASS,
-  REACT_APP_NEO4J_URI,
-} from '@env';
 
 const ReadNeo4J = async (query, uuid) => {
   const driver = neo4j.driver(

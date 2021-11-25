@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import {ImageBackground, View} from 'react-native';
 import tatomaLogo from '../../assets/tatoma_logo.png';
