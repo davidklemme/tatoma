@@ -11,7 +11,7 @@ No hosted backend necessary. Uses Heroku as key storage, so that no API key are 
 
 Runs on:
 
--- PubNub
--- Neo4J
--- Heroku (postgres) as relay server to exchange keys
--- Auth0
+- PubNub
+- Neo4J
+- Heroku (postgres) as relay server to exchange keys
+- Auth0
