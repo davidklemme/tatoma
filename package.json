@@ -27,7 +27,7 @@
     "babel-preset-react-native": "^4.0.1",
     "jwt-decode": "^2.2.0",
     "neo4j-driver": "^4.3.4",
-    "pubnub": "^4.33.1",
+    "pubnub": "^4.37.0",
     "pubnub-react": "^2.1.0",
     "react": "17.0.2",
     "react-native": "0.66.1",
